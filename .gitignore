@@ -1,24 +1,57 @@
-# build output
-dist/
-
-# generated types
-.astro/
-
-# dependencies
+```
+# Dependencies
 node_modules/
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# Build outputs
+dist/
+build/
+target/
 
-# environment variables
+# Logs
+*.log
+
+# Environment variables
 .env
-.env.production
+.env.local
+*.env.*
 
-# macOS-specific files
-.DS_Store
-
-# jetbrains setting folder
+# IDE files
+.vscode/
 .idea/
+*.swp
+*.swo
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.venv.bak/
+pip-log.txt
+pip-selfcheck.json
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.tox/
+.nox/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+```

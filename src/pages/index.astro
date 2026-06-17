@@ -8,9 +8,8 @@ import NetLabel from "../components/NetLabel.astro";
 <BaseLayout>
   <DrawingSheet>
     <section class="hero-grid">
-      <!-- LEFT -->
-
-      <div class="flex flex-col gap-6 max-w-xl">
+      <!-- LEFT: Bio Lines -->
+      <div class="bio-section flex flex-col gap-6 max-w-xl">
         <h1 class="text-6xl text-blue-700">&lt; ANUJ KHATRI/&gt;</h1>
 
         <div class="hero-content">
@@ -22,33 +21,10 @@ import NetLabel from "../components/NetLabel.astro";
             &gt; I build things with code, circuits, and whatever I can find.
           </p>
         </div>
-
-        <div class="space-y-4">
-          <p class="font-mono text-blue-700">user /socials</p>
-
-          <div class="flex flex-wrap gap-4">
-            <NetLabel label="GITHUB" href="https://github.com/yourusername" />
-
-            <NetLabel
-              label="LINKEDIN"
-              href="https://linkedin.com/in/yourprofile"
-            />
-
-            <NetLabel
-              label="INSTAGRAM"
-              href="https://instagram.com/yourprofile"
-            />
-
-            <NetLabel label="RESUME" href="/resume.pdf" />
-          </div>
-        </div>
       </div>
 
-      <!-- RIGHT -->
-
-      <div>
-        <p class="font-mono text-blue-700 mb-3">[THIS IS ME]</p>
-
+      <!-- CENTER: Schematic Photo -->
+      <div class="photo-section flex justify-center items-start">
         <SchematicPhoto
           src="/profilepic.jpg"
           alt="Anuj Khatri"
@@ -58,6 +34,27 @@ import NetLabel from "../components/NetLabel.astro";
           status="ALIVE"
           version="v20.0"
         />
+      </div>
+
+      <!-- RIGHT: Social Links -->
+      <div class="socials-section flex flex-col gap-4">
+        <p class="font-mono text-blue-700">user /socials</p>
+
+        <div class="flex flex-col gap-4">
+          <NetLabel label="GITHUB" href="https://github.com/yourusername" />
+
+          <NetLabel
+            label="LINKEDIN"
+            href="https://linkedin.com/in/yourprofile"
+          />
+
+          <NetLabel
+            label="INSTAGRAM"
+            href="https://instagram.com/yourprofile"
+          />
+
+          <NetLabel label="RESUME" href="/resume.pdf" />
+        </div>
       </div>
     </section>
   </DrawingSheet>
