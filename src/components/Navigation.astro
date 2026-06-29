@@ -1,0 +1,170 @@
+---
+const navItems = [
+  { href: "/", label: "HOME", icon: "H" },
+  { href: "/projects", label: "PROJECTS", icon: "P" },
+  { href: "/writing", label: "DOCUMENTATION", icon: "D" },
+  { href: "/contact", label: "CONTACT", icon: "C" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="engineering-nav">
+  <div class="nav-container">
+    <!-- Logo/Brand -->
+    <a href="/" class="nav-brand">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-text">ANUJ KHATRI</span>
+      <span class="brand-subtitle">HARDWARE ENGINEER</span>
+    </a>
+    
+    <!-- Navigation Links -->
+    <div class="nav-links">
+      {
+        navItems.map((item) => {
+          const isActive = currentPath === item.href || (currentPath.startsWith(item.href) && item.href !== '/');
+          return (
+            <a
+              href={item.href}
+              class={`nav-link ${isActive ? 'active' : ''}`}
+            >
+              <span class="nav-icon">{item.icon}</span>
+              <span class="nav-label">{item.label}</span>
+              {isActive && <span class="nav-indicator"></span>}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</nav>
+
+<style>
+  .engineering-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border-color);
+    backdrop-filter: blur(8px);
+  }
+  
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--text-primary);
+    gap: 2px;
+  }
+  
+  .brand-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+  
+  .brand-text {
+    font-family: var(--drawing-font);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-primary);
+  }
+  
+  .brand-subtitle {
+    font-family: var(--drawing-font);
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-family: var(--drawing-font);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    background: rgba(125, 125, 125, 0.03);
+  }
+  
+  .nav-link.active {
+    color: var(--schematic-blue);
+    border-color: rgba(29, 78, 216, 0.3);
+    background: rgba(29, 78, 216, 0.05);
+  }
+  
+  .nav-icon {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+  }
+  
+  .nav-label {
+    text-transform: uppercase;
+  }
+  
+  .nav-indicator {
+    position: absolute;
+    bottom: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--schematic-blue);
+    border-radius: 50%;
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 0 20px;
+    }
+    
+    .nav-label {
+      display: none;
+    }
+    
+    .nav-link {
+      padding: 8px 12px;
+    }
+    
+    .brand-subtitle {
+      display: none;
+    }
+  }
+</style>

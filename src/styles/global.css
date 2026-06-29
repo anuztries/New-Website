@@ -13,7 +13,7 @@
 
 :root {
   /* ====================================================== */
-  /* ENGINEERING DESIGN SYSTEM                              */
+  /* ENGINEERING DESIGN SYSTEM - LIGHT MODE                 */
   /* ====================================================== */
 
   --drawing-red: rgb(185 28 28);
@@ -23,6 +23,11 @@
   --schematic-blue-light: rgb(37 99 235);
 
   --drawing-paper: #ffffff;
+  --grid-color: rgba(200, 200, 200, 0.15);
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --bg-card: #ffffff;
+  --border-color: rgba(200, 200, 200, 0.3);
 
   --drawing-line: 1px;
   --drawing-heavy-line: 2px;
@@ -32,15 +37,36 @@
   --drawing-font: "IBM Plex Mono";
 }
 
+/* Dark mode variables */
+[data-theme="dark"] {
+  --drawing-red: rgb(248 113 113);
+  --drawing-red-light: rgb(252 165 165);
+
+  --schematic-blue: rgb(96 165 250);
+  --schematic-blue-light: rgb(147 197 253);
+
+  --drawing-paper: #1f2937;
+  --grid-color: rgba(75, 85, 99, 0.3);
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --bg-card: #111827;
+  --border-color: rgba(75, 85, 99, 0.5);
+}
+
 /* KiCAD-style grid background */
 html {
   background-image:
-    linear-gradient(rgba(200, 200, 200, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 200, 200, 0.15) 1px, transparent 1px);
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
   background-size: 20px 20px;
   background-position: 0 0;
   background-attachment: fixed;
   background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] html {
+  background-color: #0f172a;
 }
 
 body {
@@ -52,6 +78,11 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
+  background-color: var(--drawing-paper);
+  transition: 
+    color 0.3s ease,
+    background-color 0.3s ease;
 }
 
 /* Tailwind CSS base for all text Tags: */
@@ -82,7 +113,8 @@ body {
   }
 
   a {
-    @apply font-sans text-base text-blue-700;
+    @apply font-sans text-base;
+    color: var(--schematic-blue);
     text-decoration: none;
     border-bottom: 1.5px solid transparent;
     border-radius: 2px;
@@ -93,8 +125,8 @@ body {
   }
 
   a:hover {
-    background-color: rgba(37, 99, 235, 0.1);
-    color: #1d4ed8;
+    background-color: rgba(37, 99, 235, 0.15);
+    color: var(--schematic-blue-light);
   }
 
   li {
@@ -157,14 +189,14 @@ body {
     z-index: 1;
     transition: opacity 0.2s ease;
     background-image:
-      linear-gradient(to right, #2563eb 10px, transparent 10px),
-      linear-gradient(to bottom, #2563eb 10px, transparent 10px),
-      linear-gradient(to left, #2563eb 10px, transparent 10px),
-      linear-gradient(to bottom, #2563eb 10px, transparent 10px),
-      linear-gradient(to right, #2563eb 10px, transparent 10px),
-      linear-gradient(to top, #2563eb 10px, transparent 10px),
-      linear-gradient(to left, #2563eb 10px, transparent 10px),
-      linear-gradient(to top, #2563eb 10px, transparent 10px);
+      linear-gradient(to right, var(--schematic-blue) 10px, transparent 10px),
+      linear-gradient(to bottom, var(--schematic-blue) 10px, transparent 10px),
+      linear-gradient(to left, var(--schematic-blue) 10px, transparent 10px),
+      linear-gradient(to bottom, var(--schematic-blue) 10px, transparent 10px),
+      linear-gradient(to right, var(--schematic-blue) 10px, transparent 10px),
+      linear-gradient(to top, var(--schematic-blue) 10px, transparent 10px),
+      linear-gradient(to left, var(--schematic-blue) 10px, transparent 10px),
+      linear-gradient(to top, var(--schematic-blue) 10px, transparent 10px);
     background-size:
       12px 2px,
       2px 12px,

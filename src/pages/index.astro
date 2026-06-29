@@ -2,58 +2,74 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DrawingSheet from "../components/DrawingSheet.astro";
 import SchematicPhoto from "../components/SchematicPhoto.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection("projects");
+const allPosts = await getCollection("blog");
+
+const publishedProjects = allProjects
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const publishedPosts = allPosts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
 ---
 
-<BaseLayout>
+<BaseLayout title="ANUJ KHATRI | Hardware Engineer">
   <DrawingSheet>
+    <!-- HERO SECTION -->
     <section class="hero-grid">
       <!-- LEFT -->
-
       <div class="flex flex-col gap-6 max-w-xl">
-        <h1 class="text-6xl text-blue-700">&lt; ANUJ KHATRI/&gt;</h1>
+        <h1 class="text-5xl md:text-6xl" style="color: var(--schematic-blue);">&lt; ANUJ KHATRI /&gt;</h1>
 
         <div class="hero-content">
-          <p>&gt; Hello World!</p>
-
-          <p>&gt; I am a wanna-be polymath.</p>
-
-          <p>
-            &gt; I build things with code, circuits, and whatever I can find.
-          </p>
+          <p class="terminal-line">&gt; init_system(HARDWARE_ENGINEER);</p>
+          <p class="terminal-line">&gt; load_module(EMBEDDED_SYSTEMS);</p>
+          <p class="terminal-line">&gt; compile_skills(PCB_DESIGN + FPGA + FIRMWARE);</p>
+          <p class="terminal-line">&gt; status: READY_FOR_CHALLENGES;</p>
         </div>
 
         <div class="space-y-4">
-          <p class="font-mono text-blue-700">user /socials</p>
+          <p class="font-mono text-sm" style="color: var(--text-secondary);">// CONNECT_TO_NODE:</p>
 
           <div
-            class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm uppercase tracking-wide"
+            class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wide"
           >
             <a
               href="https://github.com/yourusername"
-              class="text-blue-700 hover:text-blue-900 transition-colors"
+              class="hover:text-blue-700 transition-colors"
+              style="color: var(--schematic-blue);"
               >▸ GITHUB</a
             >
             <a
               href="https://linkedin.com/in/yourprofile"
-              class="text-blue-700 hover:text-blue-900 transition-colors"
+              class="hover:text-blue-700 transition-colors"
+              style="color: var(--schematic-blue);"
               >▸ LINKEDIN</a
             >
             <a
               href="https://instagram.com/yourprofile"
-              class="text-blue-700 hover:text-blue-900 transition-colors"
+              class="hover:text-blue-700 transition-colors"
+              style="color: var(--schematic-blue);"
               >▸ INSTAGRAM</a
             >
             <a
               href="/resume.pdf"
-              class="crosshair-mask text-blue-700 hover:text-blue-900 transition-colors"
-              >▸ RESUME</a
+              class="crosshair-mask hover:text-blue-700 transition-colors"
+              style="color: var(--schematic-blue);"
+              >▸ RESUME.PDF</a
             >
           </div>
         </div>
       </div>
 
       <!-- RIGHT -->
-
       <div>
         <SchematicPhoto
           src="/profilepic.jpg"
@@ -62,10 +78,155 @@ import SchematicPhoto from "../components/SchematicPhoto.astro";
           category="HUMAN"
           name="ANUJ KHATRI"
           status="ACTIVE"
-          specialty="SOFTWARE SYSTEMS"
+          specialty="COMPUTER ENGINEERING"
           revision="2.0"
         />
       </div>
     </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section-container">
+      <div class="section-header">
+        <div class="section-title-block">
+          <span class="section-designator">SEC-01</span>
+          <h2 class="section-title">FEATURED PROJECTS</h2>
+        </div>
+        <a href="/projects" class="view-all-link">
+          VIEW ALL PROJECTS →
+        </a>
+      </div>
+      
+      <div class="projects-grid">
+        {
+          publishedProjects.map((project, index) => (
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              date={project.data.date}
+              tech={project.data.tech}
+              url={`/projects/${project.id}`}
+              designator={`PRJ-${String(index + 1).padStart(3, '0')}`}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section class="section-container">
+      <div class="section-header">
+        <div class="section-title-block">
+          <span class="section-designator">SEC-02</span>
+          <h2 class="section-title">TECHNICAL DOCUMENTATION</h2>
+        </div>
+        <a href="/writing" class="view-all-link">
+          READ ALL DOCUMENTATION →
+        </a>
+      </div>
+      
+      <div class="blogs-grid">
+        {
+          publishedPosts.map((post, index) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              url={`/writing/${post.id}`}
+              docNumber={`DOC-${String(index + 1).padStart(3, '0')}`}
+            />
+          ))
+        }
+      </div>
+    </section>
   </DrawingSheet>
 </BaseLayout>
+
+<style>
+  .terminal-line {
+    font-family: var(--drawing-font);
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+    line-height: 1.6;
+  }
+  
+  .section-container {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 2px dashed var(--border-color);
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .section-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .section-designator {
+    font-family: var(--drawing-font);
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+  }
+  
+  .section-title {
+    font-family: var(--drawing-font);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+  
+  .view-all-link {
+    font-family: var(--drawing-font);
+    font-size: 10px;
+    color: var(--drawing-red);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+  }
+  
+  .view-all-link:hover {
+    color: var(--drawing-red-light);
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  
+  .blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr !important;
+      gap: 3rem !important;
+    }
+    
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    
+    .projects-grid,
+    .blogs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
