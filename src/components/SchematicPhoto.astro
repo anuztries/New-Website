@@ -29,40 +29,44 @@ const {
 ---
 
 <div class="schematic-photo hero-photo">
-  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <div class="photo-wrapper">
+    <!-- Centered eyebrow text above photo -->
+    <p class="eyebrow-centered">{eyebrow}</p>
 
-  <div class="schematic-header">
-    <span class="reference">{designator}</span>
-    <span class="category-tag">{category}</span>
-  </div>
-
-  <div class="photo-container">
-    <span class="corner tl"></span>
-    <span class="corner tr"></span>
-    <span class="corner bl"></span>
-    <span class="corner br"></span>
-    <img class="photo" src={src} alt={alt} />
+    <div class="photo-container">
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
+      <!-- Category tag positioned on top-right corner of border -->
+      <span class="category-tag-overlay">{category}</span>
+      <img class="photo" src={src} alt={alt} />
+    </div>
   </div>
 
   <!-- Property Table -->
   <div class="properties">
     <div>
       <span>IDENTIFIER</span>
+      <span class="separator"></span>
       <span>{name}</span>
     </div>
 
     <div>
       <span>STATUS</span>
+      <span class="separator"></span>
       <span>{status}</span>
     </div>
 
     <div>
       <span>SPECIALTY</span>
+      <span class="separator"></span>
       <span>{specialty}</span>
     </div>
 
     <div>
       <span>REVISION</span>
+      <span class="separator"></span>
       <span>{revision}</span>
     </div>
   </div>
@@ -78,10 +82,20 @@ const {
     font-family: "IBM Plex Mono", monospace;
   }
 
-  .eyebrow {
-    margin: 0;
+  .photo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Centered eyebrow text above photo - no box, just text */
+  .eyebrow-centered {
+    margin: 0 0 8px 0;
     font-size: 12px;
     letter-spacing: 0.05em;
+    text-align: center;
+    font-weight: normal;
   }
 
   .schematic-header {
@@ -101,6 +115,20 @@ const {
     padding: 1px 8px;
     text-transform: uppercase;
     font-size: 10px;
+  }
+
+  /* Category tag overlay positioned on top-right corner of photo border */
+  .category-tag-overlay {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: white;
+    border: 1px solid rgb(29, 78, 216);
+    padding: 1px 8px;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    z-index: 10;
   }
 
   .photo-container {
@@ -163,10 +191,11 @@ const {
 
   .properties div {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 120px auto 1fr;
     border-bottom: 1px solid rgb(29, 78, 216);
     padding: 4px 8px;
     font-size: 12px;
+    align-items: center;
   }
 
   .properties div:last-child {
@@ -175,5 +204,12 @@ const {
 
   .properties span:first-child {
     font-weight: 600;
+  }
+
+  /* Separator line between key and value */
+  .separator {
+    border-left: 1px solid rgb(29, 78, 216);
+    height: 14px;
+    margin: 0 12px;
   }
 </style>
