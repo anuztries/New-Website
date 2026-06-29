@@ -2,8 +2,10 @@
 import "../styles/global.css";
 import Crosshair from "../components/Crosshair.jsx";
 import Footer from "../components/Footer.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import Navigation from "../components/Navigation.astro";
 
-const { title = "Anuj Khatri" } = Astro.props;
+const { title = "Anuj Khatri | Hardware Engineer", showNav = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,9 +16,12 @@ const { title = "Anuj Khatri" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Computer/Electronics Hardware Engineer portfolio - PCB design, embedded systems, FPGA development" />
     <title>{title}</title>
   </head>
   <body>
+    <ThemeToggle client:load />
+    {showNav && <Navigation />}
     <Crosshair client:load />
     <slot />
     <Footer />

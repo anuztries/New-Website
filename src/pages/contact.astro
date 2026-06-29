@@ -1,0 +1,594 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DrawingSheet from "../components/DrawingSheet.astro";
+---
+
+<BaseLayout title="CONTACT | Anuj Khatri">
+  <DrawingSheet>
+    <div class="page-container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="title-block">
+          <span class="page-designator">DWG-003</span>
+          <h1 class="page-title">CONTACT ENGINEER</h1>
+          <p class="page-subtitle">Initiate communication protocol for project inquiries</p>
+        </div>
+        
+        <div class="specs-block">
+          <div class="spec-item">
+            <span class="spec-label">STATUS:</span>
+            <span class="spec-value status-active">● AVAILABLE</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">RESPONSE TIME:</span>
+            <span class="spec-value">&lt; 48 HRS</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-layout">
+        <!-- Contact Info Side -->
+        <div class="contact-info">
+          <div class="info-card">
+            <h3 class="info-title">COMMUNICATION CHANNELS</h3>
+            
+            <div class="channel-list">
+              <a href="mailto:anuj@example.com" class="channel-item">
+                <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <div class="channel-details">
+                  <span class="channel-label">EMAIL</span>
+                  <span class="channel-value">anuj@example.com</span>
+                </div>
+              </a>
+              
+              <a href="https://linkedin.com/in/yourprofile" class="channel-item">
+                <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+                <div class="channel-details">
+                  <span class="channel-label">LINKEDIN</span>
+                  <span class="channel-value">linkedin.com/in/anuj</span>
+                </div>
+              </a>
+              
+              <a href="https://github.com/yourusername" class="channel-item">
+                <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                <div class="channel-details">
+                  <span class="channel-label">GITHUB</span>
+                  <span class="channel-value">github.com/anuj</span>
+                </div>
+              </a>
+              
+              <div class="channel-item">
+                <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <div class="channel-details">
+                  <span class="channel-label">LOCATION</span>
+                  <span class="channel-value">Available Remote / Worldwide</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Technical Specs Card -->
+          <div class="info-card tech-specs">
+            <h3 class="info-title">ENGINEERING FOCUS</h3>
+            <ul class="specs-list">
+              <li class="spec-item-row">
+                <span class="dot">●</span>
+                <span>PCB Design & Layout</span>
+              </li>
+              <li class="spec-item-row">
+                <span class="dot">●</span>
+                <span>Embedded Systems (ESP32, STM32)</span>
+              </li>
+              <li class="spec-item-row">
+                <span class="dot">●</span>
+                <span>FPGA Development (Verilog/VHDL)</span>
+              </li>
+              <li class="spec-item-row">
+                <span class="dot">●</span>
+                <span>Firmware Development (C/C++)</span>
+              </li>
+              <li class="spec-item-row">
+                <span class="dot">●</span>
+                <span>RISC-V Architecture</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Contact Form Side -->
+        <div class="form-container">
+          <form class="engineering-form" action="#" method="POST">
+            <div class="form-header">
+              <span class="form-designator">FORM-001</span>
+              <h3 class="form-title">TRANSMIT MESSAGE</h3>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name" class="form-label">
+                  <span class="label-text">CALLSIGN (NAME)</span>
+                  <span class="required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="form-input" 
+                  placeholder="Enter your identifier"
+                  required
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="form-label">
+                  <span class="label-text">RETURN ADDRESS (EMAIL)</span>
+                  <span class="required">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
+              
+              <div class="form-group full-width">
+                <label for="subject" class="form-label">
+                  <span class="label-text">SUBJECT LINE</span>
+                  <span class="required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="subject" 
+                  name="subject" 
+                  class="form-input" 
+                  placeholder="Project inquiry / Collaboration"
+                  required
+                />
+              </div>
+              
+              <div class="form-group full-width">
+                <label for="type" class="form-label">
+                  <span class="label-text">TRANSMISSION TYPE</span>
+                </label>
+                <select id="type" name="type" class="form-select">
+                  <option value="">Select communication type...</option>
+                  <option value="project">Project Inquiry</option>
+                  <option value="collaboration">Collaboration Request</option>
+                  <option value="consulting">Consulting Services</option>
+                  <option value="speaking">Speaking Engagement</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="form-group full-width">
+                <label for="message" class="form-label">
+                  <span class="label-text">DATA PAYLOAD (MESSAGE)</span>
+                  <span class="required">*</span>
+                </label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  class="form-textarea" 
+                  rows="6"
+                  placeholder="Describe your project requirements..."
+                  required
+                ></textarea>
+              </div>
+              
+              <div class="form-actions">
+                <button type="submit" class="submit-button">
+                  <span>TRANSMIT MESSAGE</span>
+                  <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <p class="form-note">
+                <span class="note-icon">⚠</span>
+                This is a design mockup. Form functionality not implemented.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Back to home -->
+      <div class="back-link-container">
+        <a href="/" class="back-link">← RETURN TO HOME</a>
+      </div>
+    </div>
+  </DrawingSheet>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+  }
+  
+  .title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .page-designator {
+    font-family: var(--drawing-font);
+    font-size: 10px;
+    color: var(--text-secondary);
+    letter-spacing: 0.15em;
+  }
+  
+  .page-title {
+    font-family: var(--drawing-font);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+  
+  .page-subtitle {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+  
+  .specs-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+    background: rgba(125, 125, 125, 0.03);
+    border: 1px solid var(--border-color);
+  }
+  
+  .spec-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .spec-label {
+    font-family: var(--drawing-font);
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
+  }
+  
+  .spec-value {
+    font-family: var(--drawing-font);
+    font-size: 11px;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  
+  .status-active {
+    color: #10b981;
+  }
+  
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+  }
+  
+  .info-title {
+    font-family: var(--drawing-font);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    letter-spacing: 0.08em;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color);
+  }
+  
+  .channel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .channel-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+  }
+  
+  .channel-item:hover {
+    opacity: 0.7;
+  }
+  
+  .channel-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--schematic-blue);
+    flex-shrink: 0;
+  }
+  
+  .channel-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .channel-label {
+    font-family: var(--drawing-font);
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+  
+  .channel-value {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--text-primary);
+  }
+  
+  .tech-specs .specs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .spec-item-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--text-primary);
+  }
+  
+  .dot {
+    color: var(--schematic-blue);
+    font-size: 8px;
+    line-height: 1;
+  }
+  
+  .form-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+  }
+  
+  .form-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--border-color);
+  }
+  
+  .form-designator {
+    font-family: var(--drawing-font);
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+  }
+  
+  .form-title {
+    font-family: var(--drawing-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+  
+  .form-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--drawing-font);
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+  
+  .required {
+    color: var(--drawing-red);
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(125, 125, 125, 0.03);
+    border: 1px solid var(--border-color);
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+  }
+  
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: var(--schematic-blue);
+    background: rgba(29, 78, 216, 0.03);
+  }
+  
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+  }
+  
+  .form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+  
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .form-actions {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+  }
+  
+  .submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 28px;
+    background: var(--schematic-blue);
+    color: white;
+    border: none;
+    font-family: var(--drawing-font);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .submit-button:hover {
+    background: var(--schematic-blue-light);
+    transform: translateY(-1px);
+  }
+  
+  .send-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .form-note {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px dashed rgba(251, 191, 36, 0.3);
+    font-family: var(--drawing-font);
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+  
+  .note-icon {
+    font-size: 12px;
+  }
+  
+  .back-link-container {
+    padding-top: 40px;
+    border-top: 1px dashed var(--border-color);
+  }
+  
+  .back-link {
+    font-family: var(--drawing-font);
+    font-size: 11px;
+    color: var(--drawing-red);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+  }
+  
+  .back-link:hover {
+    color: var(--drawing-red-light);
+  }
+  
+  @media (max-width: 1024px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+      order: 2;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .page-header {
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .page-title {
+      font-size: 24px;
+    }
+    
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

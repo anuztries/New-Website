@@ -1,11 +1,11 @@
 ---
 import FocusCroners from "./FocusCroners.astro";
 
-const { title, description, date, url } = Astro.props;
+const { title, description, date, url, docNumber = "DOC-001" } = Astro.props;
 
 const dateStr = new Date(date).toLocaleDateString("en-US", {
   year: "numeric",
-  month: "long",
+  month: "short",
   day: "numeric",
 });
 ---
@@ -13,20 +13,141 @@ const dateStr = new Date(date).toLocaleDateString("en-US", {
 <FocusCroners>
   <a
     href={url}
-    class="crosshair-mask block border border-gray-200 rounded-lg p-5 hover:border-gray-400 transition-colors no-underline group"
+    class="blog-card-link crosshair-mask block no-decoration"
   >
-    <div class="flex flex-col gap-2">
-      <span
-        class="font-mono font-medium text-base text-black group-hover:text-blue-700 transition-colors"
-      >
-        {title}
-      </span>
-      <span class="font-sans text-sm text-gray-500 leading-relaxed">
-        {description}
-      </span>
-      <span class="font-mono text-xs text-gray-400 mt-1">
-        {dateStr}
-      </span>
+    <div class="blog-card">
+      <!-- Technical drawing header -->
+      <div class="blog-header">
+        <span class="doc-number">{docNumber}</span>
+        <div class="revision-badge">REV A</div>
+      </div>
+      
+      <div class="blog-content">
+        <h3 class="blog-title">{title}</h3>
+        <p class="blog-description">{description}</p>
+        
+        <div class="blog-footer">
+          <div class="date-block">
+            <span class="date-label">DATE:</span>
+            <span class="date-value">{dateStr}</span>
+          </div>
+          <span class="read-more">READ DOCUMENTATION →</span>
+        </div>
+      </div>
     </div>
   </a>
 </FocusCroners>
+
+<style>
+  .blog-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .blog-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .blog-card:hover {
+    border-color: var(--drawing-red);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  
+  .blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color);
+  }
+  
+  .doc-number {
+    font-family: var(--drawing-font);
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
+  }
+  
+  .revision-badge {
+    font-family: var(--drawing-font);
+    font-size: 8px;
+    padding: 2px 6px;
+    background: rgba(185, 28, 28, 0.08);
+    color: var(--drawing-red);
+    border: 1px solid rgba(185, 28, 28, 0.2);
+    letter-spacing: 0.05em;
+  }
+  
+  .blog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .blog-title {
+    font-family: var(--drawing-font);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  .blog-description {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .blog-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .date-block {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  
+  .date-label {
+    font-family: var(--drawing-font);
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+  
+  .date-value {
+    font-family: var(--drawing-font);
+    font-size: 10px;
+    color: var(--text-primary);
+  }
+  
+  .read-more {
+    font-family: var(--drawing-font);
+    font-size: 9px;
+    color: var(--drawing-red);
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+  }
+  
+  .blog-card:hover .read-more {
+    color: var(--drawing-red-light);
+  }
+</style>
