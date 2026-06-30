@@ -1,34 +1,26 @@
 ---
 const navItems = [
-  { href: "/", label: "HOME", icon: "H" },
-  { href: "/projects", label: "PROJECTS", icon: "P" },
-  { href: "/writing", label: "DOCUMENTATION", icon: "D" },
-  { href: "/contact", label: "CONTACT", icon: "C" },
+  { href: "/index", label: "HOME" },
+  { href: "/projects", label: "PROJECTS" },
+  { href: "/writing", label: "DOCUMENTATION" },
+  { href: "/contact", label: "CONTACT" },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="engineering-nav">
+<nav class="engineering-nav" id="mainNav">
   <div class="nav-container">
-    <!-- Logo/Brand -->
-    <a href="/" class="nav-brand">
-      <span class="brand-icon">⚡</span>
-      <span class="brand-text">ANUJ KHATRI</span>
-      <span class="brand-subtitle">HARDWARE ENGINEER</span>
-    </a>
-    
     <!-- Navigation Links -->
     <div class="nav-links">
       {
         navItems.map((item) => {
-          const isActive = currentPath === item.href || (currentPath.startsWith(item.href) && item.href !== '/');
+          const isActive = currentPath === item.href || (currentPath.startsWith(item.href) && item.href !== '/index');
           return (
             <a
               href={item.href}
               class={`nav-link ${isActive ? 'active' : ''}`}
             >
-              <span class="nav-icon">{item.icon}</span>
               <span class="nav-label">{item.label}</span>
               {isActive && <span class="nav-indicator"></span>}
             </a>
@@ -39,6 +31,30 @@ const currentPath = Astro.url.pathname;
   </div>
 </nav>
 
+<script>
+  const nav = document.getElementById('mainNav');
+  const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index';
+  
+  function handleScroll() {
+    if (isHomePage) {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    } else {
+      // Always show scrolled state on other pages
+      nav.classList.add('scrolled');
+    }
+  }
+  
+  // Initial check
+  handleScroll();
+  
+  // Listen for scroll events
+  window.addEventListener('scroll', handleScroll, { passive: true });
+</script>
+
 <style>
   .engineering-nav {
     position: fixed;
@@ -46,9 +62,15 @@ const currentPath = Astro.url.pathname;
     left: 0;
     right: 0;
     z-index: 999;
+    background: transparent;
+    backdrop-filter: none;
+    transition: all 0.3s ease;
+  }
+  
+  .engineering-nav.scrolled {
     background: var(--bg-card);
-    border-bottom: 2px solid var(--border-color);
     backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
   }
   
   .nav-container {
@@ -56,43 +78,14 @@ const currentPath = Astro.url.pathname;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    height: 64px;
-  }
-  
-  .nav-brand {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: var(--text-primary);
-    gap: 2px;
-  }
-  
-  .brand-icon {
-    font-size: 20px;
-    line-height: 1;
-  }
-  
-  .brand-text {
-    font-family: var(--drawing-font);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--text-primary);
-  }
-  
-  .brand-subtitle {
-    font-family: var(--drawing-font);
-    font-size: 8px;
-    letter-spacing: 0.15em;
-    color: var(--text-secondary);
-    text-transform: uppercase;
+    height: 48px;
   }
   
   .nav-links {
     display: flex;
-    gap: 8px;
+    gap: 4px;
   }
   
   .nav-link {
@@ -100,38 +93,21 @@ const currentPath = Astro.url.pathname;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
+    padding: 6px 12px;
     text-decoration: none;
     font-family: var(--drawing-font);
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.08em;
     color: var(--text-secondary);
-    border: 1px solid transparent;
     transition: all 0.2s ease;
   }
   
   .nav-link:hover {
     color: var(--text-primary);
-    border-color: var(--border-color);
-    background: rgba(125, 125, 125, 0.03);
   }
   
   .nav-link.active {
     color: var(--schematic-blue);
-    border-color: rgba(29, 78, 216, 0.3);
-    background: rgba(29, 78, 216, 0.05);
-  }
-  
-  .nav-icon {
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: 700;
-    border: 1px solid currentColor;
-    border-radius: 2px;
   }
   
   .nav-label {
@@ -140,7 +116,7 @@ const currentPath = Astro.url.pathname;
   
   .nav-indicator {
     position: absolute;
-    bottom: -17px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
@@ -155,16 +131,9 @@ const currentPath = Astro.url.pathname;
       padding: 0 20px;
     }
     
-    .nav-label {
-      display: none;
-    }
-    
     .nav-link {
-      padding: 8px 12px;
-    }
-    
-    .brand-subtitle {
-      display: none;
+      padding: 6px 10px;
+      font-size: 9px;
     }
   }
 </style>
