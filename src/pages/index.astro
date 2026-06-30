@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DrawingSheet from "../components/DrawingSheet.astro";
 import SchematicPhoto from "../components/SchematicPhoto.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import BlogCard from "../components/BlogCard.astro";
@@ -21,124 +20,169 @@ const publishedPosts = allPosts
 ---
 
 <BaseLayout title="ANUJ KHATRI | Hardware Engineer">
-  <DrawingSheet>
-    <!-- HERO SECTION -->
-    <section class="hero-grid">
-      <!-- LEFT -->
-      <div class="flex flex-col gap-6 max-w-xl">
-        <h1 class="text-5xl md:text-6xl" style="color: var(--schematic-blue);">&lt; ANUJ KHATRI /&gt;</h1>
-
-        <div class="hero-content">
-          <p class="terminal-line">&gt; init_system(HARDWARE_ENGINEER);</p>
-          <p class="terminal-line">&gt; load_module(EMBEDDED_SYSTEMS);</p>
-          <p class="terminal-line">&gt; compile_skills(PCB_DESIGN + FPGA + FIRMWARE);</p>
-          <p class="terminal-line">&gt; status: READY_FOR_CHALLENGES;</p>
+  <!-- HERO SECTION with Schematic Border -->
+  <section class="hero-schematic-wrapper">
+    <!-- OUTER BORDER -->
+    <div class="absolute inset-3 border-2 border-red-700 pointer-events-none"></div>
+    
+    <!-- INNER BORDER -->
+    <div class="absolute inset-8 border border-red-600 pointer-events-none"></div>
+    
+    <!-- TOP COORDINATES -->
+    <div class="absolute top-3 left-8 right-8 h-5 flex font-mono text-[11px] text-red-700">
+      {[1, 2, 3, 4].map((n) => (
+        <div class="flex-1 border-r border-red-600 first:border-l flex justify-center">
+          {n}
         </div>
+      ))}
+    </div>
+    
+    <!-- BOTTOM COORDINATES -->
+    <div class="absolute bottom-3 left-8 right-8 h-5 flex font-mono text-[11px] text-red-700">
+      {[1, 2, 3, 4].map((n) => (
+        <div class="flex-1 border-r border-red-600 first:border-l flex justify-center">
+          {n}
+        </div>
+      ))}
+    </div>
+    
+    <!-- LEFT COORDINATES -->
+    <div class="absolute left-3 top-8 bottom-8 w-5 flex flex-col font-mono text-[11px] text-red-700">
+      {["A", "B", "C", "D"].map((c) => (
+        <div class="flex-1 border-b border-red-600 first:border-t flex items-center justify-center">
+          {c}
+        </div>
+      ))}
+    </div>
+    
+    <!-- RIGHT COORDINATES -->
+    <div class="absolute right-3 top-8 bottom-8 w-5 flex flex-col font-mono text-[11px] text-red-700">
+      {["A", "B", "C", "D"].map((c) => (
+        <div class="flex-1 border-b border-red-600 first:border-t flex items-center justify-center">
+          {c}
+        </div>
+      ))}
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 px-20 py-20">
+      <section class="hero-grid">
+        <!-- LEFT -->
+        <div class="flex flex-col gap-6 max-w-xl">
+          <h1 class="text-5xl md:text-6xl" style="color: var(--schematic-blue);">&lt; ANUJ KHATRI /&gt;</h1>
 
-        <div class="space-y-4">
-          <p class="font-mono text-sm" style="color: var(--text-secondary);">// CONNECT_TO_NODE:</p>
+          <div class="hero-content">
+            <p class="terminal-line">&gt; init_system(HARDWARE_ENGINEER);</p>
+            <p class="terminal-line">&gt; load_module(EMBEDDED_SYSTEMS);</p>
+            <p class="terminal-line">&gt; compile_skills(PCB_DESIGN + FPGA + FIRMWARE);</p>
+            <p class="terminal-line">&gt; status: READY_FOR_CHALLENGES;</p>
+          </div>
 
-          <div
-            class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wide"
-          >
-            <a
-              href="https://github.com/yourusername"
-              class="hover:text-blue-700 transition-colors"
-              style="color: var(--schematic-blue);"
-              >▸ GITHUB</a
+          <div class="space-y-4">
+            <p class="font-mono text-sm" style="color: var(--text-secondary);">// CONNECT_TO_NODE:</p>
+
+            <div
+              class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wide"
             >
-            <a
-              href="https://linkedin.com/in/yourprofile"
-              class="hover:text-blue-700 transition-colors"
-              style="color: var(--schematic-blue);"
-              >▸ LINKEDIN</a
-            >
-            <a
-              href="https://instagram.com/yourprofile"
-              class="hover:text-blue-700 transition-colors"
-              style="color: var(--schematic-blue);"
-              >▸ INSTAGRAM</a
-            >
-            <a
-              href="/resume.pdf"
-              class="crosshair-mask hover:text-blue-700 transition-colors"
-              style="color: var(--schematic-blue);"
-              >▸ RESUME.PDF</a
-            >
+              <a
+                href="https://github.com/yourusername"
+                class="hover:text-blue-700 transition-colors"
+                style="color: var(--schematic-blue);"
+                >[GITHUB]</a
+              >
+              <a
+                href="https://linkedin.com/in/yourprofile"
+                class="hover:text-blue-700 transition-colors"
+                style="color: var(--schematic-blue);"
+                >[LINKEDIN]</a
+              >
+              <a
+                href="https://instagram.com/yourprofile"
+                class="hover:text-blue-700 transition-colors"
+                style="color: var(--schematic-blue);"
+                >[INSTAGRAM]</a
+              >
+              <a
+                href="/resume.pdf"
+                class="crosshair-mask hover:text-blue-700 transition-colors"
+                style="color: var(--schematic-blue);"
+                >[RESUME.PDF]</a
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- RIGHT -->
-      <div>
-        <SchematicPhoto
-          src="/profilepic.jpg"
-          alt="Anuj Khatri"
-          designator="U1"
-          category="HUMAN"
-          name="ANUJ KHATRI"
-          status="ACTIVE"
-          specialty="COMPUTER ENGINEERING"
-          revision="2.0"
-        />
-      </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="section-container">
-      <div class="section-header">
-        <div class="section-title-block">
-          <span class="section-designator">SEC-01</span>
-          <h2 class="section-title">FEATURED PROJECTS</h2>
+        <!-- RIGHT -->
+        <div>
+          <SchematicPhoto
+            src="/profilepic.jpg"
+            alt="Anuj Khatri"
+            designator="U1"
+            category="HUMAN"
+            name="ANUJ KHATRI"
+            status="ACTIVE"
+            specialty="COMPUTER ENGINEERING"
+            revision="2.0"
+          />
         </div>
-        <a href="/projects" class="view-all-link">
-          VIEW ALL PROJECTS →
-        </a>
-      </div>
-      
-      <div class="projects-grid">
-        {
-          publishedProjects.map((project, index) => (
-            <ProjectCard
-              title={project.data.title}
-              description={project.data.description}
-              date={project.data.date}
-              tech={project.data.tech}
-              url={`/projects/${project.id}`}
-              designator={`PRJ-${String(index + 1).padStart(3, '0')}`}
-            />
-          ))
-        }
-      </div>
-    </section>
+      </section>
+    </div>
+  </section>
 
-    <!-- BLOG SECTION -->
-    <section class="section-container">
-      <div class="section-header">
-        <div class="section-title-block">
-          <span class="section-designator">SEC-02</span>
-          <h2 class="section-title">TECHNICAL DOCUMENTATION</h2>
-        </div>
-        <a href="/writing" class="view-all-link">
-          READ ALL DOCUMENTATION →
-        </a>
+  <!-- PROJECTS SECTION (no schematic border) -->
+  <section class="section-container">
+    <div class="section-header">
+      <div class="section-title-block">
+        <span class="section-designator">SEC-01</span>
+        <h2 class="section-title">FEATURED PROJECTS</h2>
       </div>
-      
-      <div class="blogs-grid">
-        {
-          publishedPosts.map((post, index) => (
-            <BlogCard
-              title={post.data.title}
-              description={post.data.description}
-              date={post.data.date}
-              url={`/writing/${post.id}`}
-              docNumber={`DOC-${String(index + 1).padStart(3, '0')}`}
-            />
-          ))
-        }
+      <a href="/projects" class="view-all-link">
+        [VIEW ALL PROJECTS]
+      </a>
+    </div>
+    
+    <div class="projects-grid">
+      {
+        publishedProjects.map((project, index) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            date={project.data.date}
+            tech={project.data.tech}
+            url={`/projects/${project.id}`}
+            designator={`PRJ-${String(index + 1).padStart(3, '0')}`}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- BLOG SECTION (no schematic border) -->
+  <section class="section-container">
+    <div class="section-header">
+      <div class="section-title-block">
+        <span class="section-designator">SEC-02</span>
+        <h2 class="section-title">TECHNICAL DOCUMENTATION</h2>
       </div>
-    </section>
-  </DrawingSheet>
+      <a href="/writing" class="view-all-link">
+        [READ ALL DOCUMENTATION]
+      </a>
+    </div>
+    
+    <div class="blogs-grid">
+      {
+        publishedPosts.map((post, index) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            url={`/writing/${post.id}`}
+            docNumber={`DOC-${String(index + 1).padStart(3, '0')}`}
+          />
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -148,6 +192,14 @@ const publishedPosts = allPosts
     color: var(--text-secondary);
     margin: 0 0 8px 0;
     line-height: 1.6;
+  }
+  
+  /* Hero Schematic Wrapper - Only for homepage hero section */
+  .hero-schematic-wrapper {
+    position: relative;
+    border: 2px solid var(--drawing-red);
+    margin: 0;
+    background: var(--drawing-paper);
   }
   
   .section-container {

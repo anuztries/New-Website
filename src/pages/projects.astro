@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DrawingSheet from "../components/DrawingSheet.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { getCollection } from "astro:content";
 
@@ -12,63 +11,61 @@ const publishedProjects = allProjects
 ---
 
 <BaseLayout title="PROJECTS | Anuj Khatri">
-  <DrawingSheet>
-    <div class="page-container">
-      <!-- Page Header -->
-      <div class="page-header">
-        <div class="title-block">
-          <span class="page-designator">DWG-001</span>
-          <h1 class="page-title">ENGINEERING PROJECTS</h1>
-          <p class="page-subtitle">A collection of hardware and embedded systems designs</p>
-        </div>
-        
-        <div class="specs-block">
-          <div class="spec-item">
-            <span class="spec-label">TOTAL PROJECTS:</span>
-            <span class="spec-value">{publishedProjects.length}</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">LATEST REV:</span>
-            <span class="spec-value">{publishedProjects[0]?.data?.date ? new Date(publishedProjects[0].data.date).toLocaleDateString() : 'N/A'}</span>
-          </div>
-        </div>
+  <div class="page-container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="title-block">
+        <span class="page-designator">DWG-001</span>
+        <h1 class="page-title">ENGINEERING PROJECTS</h1>
+        <p class="page-subtitle">A collection of hardware and embedded systems designs</p>
       </div>
       
-      <!-- Projects Grid -->
-      <div class="projects-full-grid">
-        {
-          publishedProjects.map((project, index) => (
-            <ProjectCard
-              title={project.data.title}
-              description={project.data.description}
-              date={project.data.date}
-              tech={project.data.tech}
-              url={`/projects/${project.id}`}
-              designator={`PRJ-${String(index + 1).padStart(3, '0')}`}
-            />
-          ))
-        }
-      </div>
-      
-      {
-        publishedProjects.length === 0 && (
-          <div class="empty-state">
-            <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <path d="M9 9h6M9 13h6M9 17h4"/>
-            </svg>
-            <p class="empty-text">[ NO PROJECTS LOADED ]</p>
-            <p class="empty-subtext">Check back soon for new designs</p>
-          </div>
-        )
-      }
-      
-      <!-- Back to home -->
-      <div class="back-link-container">
-        <a href="/" class="back-link">← RETURN TO HOME</a>
+      <div class="specs-block">
+        <div class="spec-item">
+          <span class="spec-label">TOTAL PROJECTS:</span>
+          <span class="spec-value">{publishedProjects.length}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">LATEST REV:</span>
+          <span class="spec-value">{publishedProjects[0]?.data?.date ? new Date(publishedProjects[0].data.date).toLocaleDateString() : 'N/A'}</span>
+        </div>
       </div>
     </div>
-  </DrawingSheet>
+    
+    <!-- Projects Grid -->
+    <div class="projects-full-grid">
+      {
+        publishedProjects.map((project, index) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            date={project.data.date}
+            tech={project.data.tech}
+            url={`/projects/${project.id}`}
+            designator={`PRJ-${String(index + 1).padStart(3, '0')}`}
+          />
+        ))
+      }
+    </div>
+    
+    {
+      publishedProjects.length === 0 && (
+        <div class="empty-state">
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M9 9h6M9 13h6M9 17h4"/>
+          </svg>
+          <p class="empty-text">[ NO PROJECTS LOADED ]</p>
+          <p class="empty-subtext">Check back soon for new designs</p>
+        </div>
+      )
+    }
+    
+    <!-- Back to home -->
+    <div class="back-link-container">
+      <a href="/" class="back-link">[RETURN TO HOME]</a>
+    </div>
+  </div>
 </BaseLayout>
 
 <style>

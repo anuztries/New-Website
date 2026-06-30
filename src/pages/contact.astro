@@ -1,220 +1,217 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DrawingSheet from "../components/DrawingSheet.astro";
 ---
 
 <BaseLayout title="CONTACT | Anuj Khatri">
-  <DrawingSheet>
-    <div class="page-container">
-      <!-- Page Header -->
-      <div class="page-header">
-        <div class="title-block">
-          <span class="page-designator">DWG-003</span>
-          <h1 class="page-title">CONTACT ENGINEER</h1>
-          <p class="page-subtitle">Initiate communication protocol for project inquiries</p>
-        </div>
-        
-        <div class="specs-block">
-          <div class="spec-item">
-            <span class="spec-label">STATUS:</span>
-            <span class="spec-value status-active">● AVAILABLE</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">RESPONSE TIME:</span>
-            <span class="spec-value">&lt; 48 HRS</span>
-          </div>
-        </div>
+  <div class="page-container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="title-block">
+        <span class="page-designator">DWG-003</span>
+        <h1 class="page-title">CONTACT ENGINEER</h1>
+        <p class="page-subtitle">Initiate communication protocol for project inquiries</p>
       </div>
       
-      <div class="contact-layout">
-        <!-- Contact Info Side -->
-        <div class="contact-info">
-          <div class="info-card">
-            <h3 class="info-title">COMMUNICATION CHANNELS</h3>
-            
-            <div class="channel-list">
-              <a href="mailto:anuj@example.com" class="channel-item">
-                <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                <div class="channel-details">
-                  <span class="channel-label">EMAIL</span>
-                  <span class="channel-value">anuj@example.com</span>
-                </div>
-              </a>
-              
-              <a href="https://linkedin.com/in/yourprofile" class="channel-item">
-                <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect x="2" y="9" width="4" height="12"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-                <div class="channel-details">
-                  <span class="channel-label">LINKEDIN</span>
-                  <span class="channel-value">linkedin.com/in/anuj</span>
-                </div>
-              </a>
-              
-              <a href="https://github.com/yourusername" class="channel-item">
-                <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                </svg>
-                <div class="channel-details">
-                  <span class="channel-label">GITHUB</span>
-                  <span class="channel-value">github.com/anuj</span>
-                </div>
-              </a>
-              
-              <div class="channel-item">
-                <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <div class="channel-details">
-                  <span class="channel-label">LOCATION</span>
-                  <span class="channel-value">Available Remote / Worldwide</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Technical Specs Card -->
-          <div class="info-card tech-specs">
-            <h3 class="info-title">ENGINEERING FOCUS</h3>
-            <ul class="specs-list">
-              <li class="spec-item-row">
-                <span class="dot">●</span>
-                <span>PCB Design & Layout</span>
-              </li>
-              <li class="spec-item-row">
-                <span class="dot">●</span>
-                <span>Embedded Systems (ESP32, STM32)</span>
-              </li>
-              <li class="spec-item-row">
-                <span class="dot">●</span>
-                <span>FPGA Development (Verilog/VHDL)</span>
-              </li>
-              <li class="spec-item-row">
-                <span class="dot">●</span>
-                <span>Firmware Development (C/C++)</span>
-              </li>
-              <li class="spec-item-row">
-                <span class="dot">●</span>
-                <span>RISC-V Architecture</span>
-              </li>
-            </ul>
-          </div>
+      <div class="specs-block">
+        <div class="spec-item">
+          <span class="spec-label">STATUS:</span>
+          <span class="spec-value status-active">● AVAILABLE</span>
         </div>
-        
-        <!-- Contact Form Side -->
-        <div class="form-container">
-          <form class="engineering-form" action="#" method="POST">
-            <div class="form-header">
-              <span class="form-designator">FORM-001</span>
-              <h3 class="form-title">TRANSMIT MESSAGE</h3>
-            </div>
-            
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="name" class="form-label">
-                  <span class="label-text">CALLSIGN (NAME)</span>
-                  <span class="required">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  class="form-input" 
-                  placeholder="Enter your identifier"
-                  required
-                />
-              </div>
-              
-              <div class="form-group">
-                <label for="email" class="form-label">
-                  <span class="label-text">RETURN ADDRESS (EMAIL)</span>
-                  <span class="required">*</span>
-                </label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  class="form-input" 
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
-              
-              <div class="form-group full-width">
-                <label for="subject" class="form-label">
-                  <span class="label-text">SUBJECT LINE</span>
-                  <span class="required">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  name="subject" 
-                  class="form-input" 
-                  placeholder="Project inquiry / Collaboration"
-                  required
-                />
-              </div>
-              
-              <div class="form-group full-width">
-                <label for="type" class="form-label">
-                  <span class="label-text">TRANSMISSION TYPE</span>
-                </label>
-                <select id="type" name="type" class="form-select">
-                  <option value="">Select communication type...</option>
-                  <option value="project">Project Inquiry</option>
-                  <option value="collaboration">Collaboration Request</option>
-                  <option value="consulting">Consulting Services</option>
-                  <option value="speaking">Speaking Engagement</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              
-              <div class="form-group full-width">
-                <label for="message" class="form-label">
-                  <span class="label-text">DATA PAYLOAD (MESSAGE)</span>
-                  <span class="required">*</span>
-                </label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  class="form-textarea" 
-                  rows="6"
-                  placeholder="Describe your project requirements..."
-                  required
-                ></textarea>
-              </div>
-              
-              <div class="form-actions">
-                <button type="submit" class="submit-button">
-                  <span>TRANSMIT MESSAGE</span>
-                  <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="22" y1="2" x2="11" y2="13"/>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                  </svg>
-                </button>
-              </div>
-              
-              <p class="form-note">
-                <span class="note-icon">⚠</span>
-                This is a design mockup. Form functionality not implemented.
-              </p>
-            </div>
-          </form>
+        <div class="spec-item">
+          <span class="spec-label">RESPONSE TIME:</span>
+          <span class="spec-value">&lt; 48 HRS</span>
         </div>
-      </div>
-      
-      <!-- Back to home -->
-      <div class="back-link-container">
-        <a href="/" class="back-link">← RETURN TO HOME</a>
       </div>
     </div>
-  </DrawingSheet>
+    
+    <div class="contact-layout">
+      <!-- Contact Info Side -->
+      <div class="contact-info">
+        <div class="info-card">
+          <h3 class="info-title">COMMUNICATION CHANNELS</h3>
+          
+          <div class="channel-list">
+            <a href="mailto:anuj@example.com" class="channel-item">
+              <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <div class="channel-details">
+                <span class="channel-label">EMAIL</span>
+                <span class="channel-value">anuj@example.com</span>
+              </div>
+            </a>
+            
+            <a href="https://linkedin.com/in/yourprofile" class="channel-item">
+              <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              <div class="channel-details">
+                <span class="channel-label">LINKEDIN</span>
+                <span class="channel-value">linkedin.com/in/anuj</span>
+              </div>
+            </a>
+            
+            <a href="https://github.com/yourusername" class="channel-item">
+              <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              <div class="channel-details">
+                <span class="channel-label">GITHUB</span>
+                <span class="channel-value">github.com/anuj</span>
+              </div>
+            </a>
+            
+            <div class="channel-item">
+              <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div class="channel-details">
+                <span class="channel-label">LOCATION</span>
+                <span class="channel-value">Available Remote / Worldwide</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Technical Specs Card -->
+        <div class="info-card tech-specs">
+          <h3 class="info-title">ENGINEERING FOCUS</h3>
+          <ul class="specs-list">
+            <li class="spec-item-row">
+              <span class="dot">●</span>
+              <span>PCB Design & Layout</span>
+            </li>
+            <li class="spec-item-row">
+              <span class="dot">●</span>
+              <span>Embedded Systems (ESP32, STM32)</span>
+            </li>
+            <li class="spec-item-row">
+              <span class="dot">●</span>
+              <span>FPGA Development (Verilog/VHDL)</span>
+            </li>
+            <li class="spec-item-row">
+              <span class="dot">●</span>
+              <span>Firmware Development (C/C++)</span>
+            </li>
+            <li class="spec-item-row">
+              <span class="dot">●</span>
+              <span>RISC-V Architecture</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Contact Form Side -->
+      <div class="form-container">
+        <form class="engineering-form" action="#" method="POST">
+          <div class="form-header">
+            <span class="form-designator">FORM-001</span>
+            <h3 class="form-title">TRANSMIT MESSAGE</h3>
+          </div>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name" class="form-label">
+                <span class="label-text">CALLSIGN (NAME)</span>
+                <span class="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form-input" 
+                placeholder="Enter your identifier"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">
+                <span class="label-text">RETURN ADDRESS (EMAIL)</span>
+                <span class="required">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input" 
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+            
+            <div class="form-group full-width">
+              <label for="subject" class="form-label">
+                <span class="label-text">SUBJECT LINE</span>
+                <span class="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="subject" 
+                name="subject" 
+                class="form-input" 
+                placeholder="Project inquiry / Collaboration"
+                required
+              />
+            </div>
+            
+            <div class="form-group full-width">
+              <label for="type" class="form-label">
+                <span class="label-text">TRANSMISSION TYPE</span>
+              </label>
+              <select id="type" name="type" class="form-select">
+                <option value="">Select communication type...</option>
+                <option value="project">Project Inquiry</option>
+                <option value="collaboration">Collaboration Request</option>
+                <option value="consulting">Consulting Services</option>
+                <option value="speaking">Speaking Engagement</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group full-width">
+              <label for="message" class="form-label">
+                <span class="label-text">DATA PAYLOAD (MESSAGE)</span>
+                <span class="required">*</span>
+              </label>
+              <textarea 
+                id="message" 
+                name="message" 
+                class="form-textarea" 
+                rows="6"
+                placeholder="Describe your project requirements..."
+                required
+              ></textarea>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="submit-button">
+                <span>TRANSMIT MESSAGE</span>
+                <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"/>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+              </button>
+            </div>
+            
+            <p class="form-note">
+              <span class="note-icon">⚠</span>
+              This is a design mockup. Form functionality not implemented.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Back to home -->
+    <div class="back-link-container">
+      <a href="/" class="back-link">[RETURN TO HOME]</a>
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
@@ -574,6 +571,10 @@ import DrawingSheet from "../components/DrawingSheet.astro";
     
     .contact-info {
       order: 2;
+    }
+    
+    .form-container {
+      order: 1;
     }
   }
   
