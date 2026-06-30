@@ -4,21 +4,12 @@ import TitleBlockFooter from "./TitleBlockFooter.astro";
 const year = new Date().getFullYear();
 ---
 
-<footer class="relative mt-32 px-8 md:px-20 py-6">
+<footer class="relative px-8 md:px-20 py-4">
   <!-- Title block now sits full-width on its own row -->
   <TitleBlockFooter />
 
-  <!-- Flavor text left, plain arrow-links right -->
-  <div class="mt-4 flex flex-col md:flex-row justify-between gap-4">
-    <!-- <div
-      class="font-mono text-[10px] text-red-400 tracking-wide leading-relaxed"
-    >
-      <p>VCC — 3V3 ±5%</p>
-      <p>CLK — 16MHz ±20ppm</p>
-      <p>FIG.00 — PERSONAL_BUILD</p>
-      <p>DO NOT SCALE / VECTOR ASSET</p>
-    </div> -->
-
+  <!-- Social links right -->
+  <div class="mt-3 flex flex-col md:flex-row justify-between gap-4">
     <div
       class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wide justify-end"
     >
@@ -43,7 +34,7 @@ const year = new Date().getFullYear();
   </div>
 
   <div
-    class="mt-6 text-center font-mono text-[10px] text-gray-400 tracking-wide"
+    class="mt-4 text-center font-mono text-[10px] text-gray-400 tracking-wide"
   >
     © {year} ANUJ KHATRI · ALL DIMENSIONS IN PIXELS UNLESS OTHERWISE NOTED
   </div>
