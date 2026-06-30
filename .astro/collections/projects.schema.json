@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "tech": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "github": {
+      "type": "string"
+    },
+    "demo": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "date"
+  ]
+}

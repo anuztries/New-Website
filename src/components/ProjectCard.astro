@@ -1,51 +1,68 @@
 ---
-const { title, description, date, tech, url, designator = "PRJ-001" } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  tech,
+  url,
+  designator = "PRJ-001",
+} = Astro.props;
 
-const formattedDate = date 
-  ? new Date(date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
+const formattedDate = date
+  ? new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    })
   : "";
 ---
 
-<a
-  href={url}
-  class="project-card-link crosshair-mask block no-decoration"
->
+<a href={url} class="project-card-link crosshair-mask block no-decoration">
   <div class="project-card">
     <!-- Schematic-style header -->
     <div class="card-header">
       <span class="designator">{designator}</span>
       <span class="status-indicator"></span>
     </div>
-    
+
     <!-- Thumbnail placeholder with engineering grid -->
     <div class="card-thumbnail">
       <div class="grid-overlay"></div>
       <div class="placeholder-content">
-        <svg class="circuit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="2" width="20" height="20" rx="2"/>
-          <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
-          <circle cx="16" cy="8" r="1.5" fill="currentColor"/>
-          <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
-          <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
-          <path d="M8 4v2M16 4v2M8 18v2M16 18v2M4 8h2M4 16h2M18 8h2M18 16h2"/>
+        <svg
+          class="circuit-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+          <circle cx="8" cy="8" r="1.5" fill="currentColor"></circle>
+          <circle cx="16" cy="8" r="1.5" fill="currentColor"></circle>
+          <circle cx="8" cy="16" r="1.5" fill="currentColor"></circle>
+          <circle cx="16" cy="16" r="1.5" fill="currentColor"></circle>
+          <path d="M8 4v2M16 4v2M8 18v2M16 18v2M4 8h2M4 16h2M18 8h2M18 16h2"
+          ></path>
         </svg>
         <span class="placeholder-text">PCB PREVIEW</span>
       </div>
     </div>
-    
+
     <!-- Info section styled like a component datasheet -->
     <div class="card-info">
       <h3 class="card-title">{title}</h3>
       <p class="card-description">{description}</p>
-      
-      {tech && tech.length > 0 && (
-        <div class="tech-tags">
-          {tech.slice(0, 4).map((t) => (
-            <span class="tech-tag">{t}</span>
-          ))}
-        </div>
-      )}
-      
+
+      {
+        tech && tech.length > 0 && (
+          <div class="tech-tags">
+            {tech.slice(0, 4).map((t) => (
+              <span class="tech-tag">{t}</span>
+            ))}
+          </div>
+        )
+      }
+
       <div class="card-footer">
         <span class="card-date">{formattedDate}</span>
         <span class="view-project">VIEW PROJECT →</span>
@@ -59,7 +76,7 @@ const formattedDate = date
     text-decoration: none;
     color: inherit;
   }
-  
+
   .project-card {
     position: relative;
     background: var(--bg-card);
@@ -67,13 +84,13 @@ const formattedDate = date
     transition: all 0.3s ease;
     overflow: hidden;
   }
-  
+
   .project-card:hover {
     border-color: var(--schematic-blue);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
   }
-  
+
   .card-header {
     display: flex;
     justify-content: space-between;
@@ -82,14 +99,14 @@ const formattedDate = date
     border-bottom: 1px solid var(--border-color);
     background: rgba(125, 125, 125, 0.03);
   }
-  
+
   .designator {
     font-family: var(--drawing-font);
     font-size: 10px;
     color: var(--text-secondary);
     letter-spacing: 0.05em;
   }
-  
+
   .status-indicator {
     width: 8px;
     height: 8px;
@@ -97,20 +114,29 @@ const formattedDate = date
     background: var(--schematic-blue);
     animation: pulse 2s infinite;
   }
-  
+
   @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
-  
+
   .card-thumbnail {
     position: relative;
     width: 100%;
     aspect-ratio: 16/10;
-    background: linear-gradient(135deg, rgba(29, 78, 216, 0.05) 0%, rgba(37, 99, 235, 0.08) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(29, 78, 216, 0.05) 0%,
+      rgba(37, 99, 235, 0.08) 100%
+    );
     overflow: hidden;
   }
-  
+
   .grid-overlay {
     position: absolute;
     inset: 0;
@@ -120,7 +146,7 @@ const formattedDate = date
     background-size: 16px 16px;
     opacity: 0.6;
   }
-  
+
   .placeholder-content {
     position: absolute;
     inset: 0;
@@ -130,25 +156,25 @@ const formattedDate = date
     justify-content: center;
     gap: 8px;
   }
-  
+
   .circuit-icon {
     width: 48px;
     height: 48px;
     color: var(--schematic-blue);
     opacity: 0.6;
   }
-  
+
   .placeholder-text {
     font-family: var(--drawing-font);
     font-size: 10px;
     color: var(--text-secondary);
     letter-spacing: 0.1em;
   }
-  
+
   .card-info {
     padding: 16px;
   }
-  
+
   .card-title {
     font-family: var(--drawing-font);
     font-size: 14px;
@@ -157,7 +183,7 @@ const formattedDate = date
     margin: 0 0 8px 0;
     line-height: 1.4;
   }
-  
+
   .card-description {
     font-family: "Inter", sans-serif;
     font-size: 12px;
@@ -169,14 +195,14 @@ const formattedDate = date
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
+
   .tech-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     margin-bottom: 12px;
   }
-  
+
   .tech-tag {
     font-family: var(--drawing-font);
     font-size: 9px;
@@ -186,7 +212,7 @@ const formattedDate = date
     border: 1px solid rgba(29, 78, 216, 0.2);
     letter-spacing: 0.02em;
   }
-  
+
   .card-footer {
     display: flex;
     justify-content: space-between;
@@ -194,13 +220,13 @@ const formattedDate = date
     padding-top: 12px;
     border-top: 1px dashed var(--border-color);
   }
-  
+
   .card-date {
     font-family: var(--drawing-font);
     font-size: 10px;
     color: var(--text-secondary);
   }
-  
+
   .view-project {
     font-family: var(--drawing-font);
     font-size: 10px;
@@ -208,7 +234,7 @@ const formattedDate = date
     letter-spacing: 0.05em;
     transition: color 0.2s ease;
   }
-  
+
   .project-card:hover .view-project {
     color: var(--schematic-blue-light);
   }

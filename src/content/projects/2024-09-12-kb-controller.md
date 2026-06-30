@@ -10,9 +10,11 @@ github: "https://github.com/yourusername/kb-controller"
 # Custom Mechanical Keyboard Controller
 
 ## Overview
+
 A fully customizable keyboard controller based on the Raspberry Pi RP2040 microcontroller. This project includes both hardware (PCB design) and firmware (QMK-based) for building custom mechanical keyboards.
 
 ## Features
+
 - RP2040 dual-core ARM Cortex-M0+ processor
 - Native USB support with QMK/VIA compatibility
 - Hot-swappable MX switch sockets
@@ -21,6 +23,7 @@ A fully customizable keyboard controller based on the Raspberry Pi RP2040 microc
 - Rotary encoder support
 
 ## Hardware Specifications
+
 - MCU: RP2040 (264KB SRAM, 2MB Flash)
 - Matrix size: Up to 90 keys
 - GPIO pins: 26 available for customization
@@ -28,6 +31,7 @@ A fully customizable keyboard controller based on the Raspberry Pi RP2040 microc
 - Reset button for bootloader access
 
 ## PCB Design Highlights
+
 - 1.6mm FR-4 substrate, 2-layer design
 - Cherry MX hot-swap footprints
 - In-switch and underglow LED placement
@@ -35,6 +39,7 @@ A fully customizable keyboard controller based on the Raspberry Pi RP2040 microc
 - SWD programming header
 
 ## Firmware Features
+
 ```c
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_75_pct(
@@ -53,6 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 - RGB lighting effects
 
 ## Build Process
+
 1. Schematic capture in KiCad
 2. PCB layout with impedance control
 3. JLCPCB fabrication
@@ -60,12 +66,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 5. Firmware compilation and flashing
 
 ## Lessons Learned
+
 - Importance of decoupling capacitor placement
 - USB differential pair routing techniques
 - Switch matrix optimization
 - Power consumption management
 
 ## Future Iterations
+
 - Wireless version with nRF52840
 - Per-key RGB instead of underglow
 - Integrated display for status info
