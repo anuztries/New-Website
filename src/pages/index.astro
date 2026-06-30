@@ -69,8 +69,6 @@ const publishedPosts = allPosts
       <section class="hero-grid">
         <!-- LEFT -->
         <div class="flex flex-col gap-6 max-w-xl">
-          <h1 class="text-5xl md:text-6xl" style="color: var(--schematic-blue);">&lt; ANUJ KHATRI /&gt;</h1>
-
           <div class="hero-content">
             <p class="terminal-line">&gt; init_system(HARDWARE_ENGINEER);</p>
             <p class="terminal-line">&gt; load_module(EMBEDDED_SYSTEMS);</p>
@@ -200,6 +198,11 @@ const publishedPosts = allPosts
     border: 2px solid var(--drawing-red);
     margin: 0;
     background: var(--drawing-paper);
+  }
+  
+  /* Remove extra red line after schematic border */
+  .hero-schematic-wrapper + * {
+    border-top: none !important;
   }
   
   .section-container {

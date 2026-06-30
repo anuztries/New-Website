@@ -11,6 +11,9 @@ const currentPath = Astro.url.pathname;
 
 <nav class="engineering-nav" id="mainNav">
   <div class="nav-container">
+    <!-- ANUJ KHATRI Title - Only visible when scrolled -->
+    <div class="nav-title">&lt; ANUJ KHATRI /&gt;</div>
+    
     <!-- Navigation Links -->
     <div class="nav-links">
       {
@@ -78,9 +81,25 @@ const currentPath = Astro.url.pathname;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     height: 48px;
+  }
+  
+  .nav-title {
+    font-family: var(--drawing-font);
+    font-size: 14px;
+    color: var(--schematic-blue);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .engineering-nav.scrolled .nav-title {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .nav-links {
@@ -134,6 +153,10 @@ const currentPath = Astro.url.pathname;
     .nav-link {
       padding: 6px 10px;
       font-size: 9px;
+    }
+    
+    .nav-title {
+      font-size: 12px;
     }
   }
 </style>
