@@ -2,12 +2,6 @@
 # Dependencies
 node_modules/
 
-# Build artifacts
-dist/
-build/
-*.js
-*.css
-
 # Logs and temp files
 *.log
 *.tmp
@@ -21,7 +15,7 @@ build/
 .vscode/
 .idea/
 
-# OS
-.DS_Store
-Thumbs.db
+# Build outputs
+dist/
+build/
 ```
